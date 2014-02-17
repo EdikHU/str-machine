@@ -2,12 +2,17 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-
-
-	<groupId>str-machine</groupId>
 	<artifactId>str-query-processor</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>str-query-processor</name>
+
+	<parent>
+		<artifactId>str-machine</artifactId>
+		<groupId>sed.str.machine</groupId>
+		<version>${project.version}</version>
+	</parent>
+
+
+
+	<name>str query processor</name>
 
 	<properties>
 		<jetty.version>8.1.11.v20130520</jetty.version>
