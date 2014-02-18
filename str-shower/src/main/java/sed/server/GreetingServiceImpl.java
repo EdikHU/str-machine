@@ -1,7 +1,9 @@
 package sed.server;
 
+import sed.DBUtil;
 import sed.client.GreetingService;
 import sed.shared.FieldVerifier;
+
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
 /**
@@ -27,8 +29,9 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements
     input = escapeHtml(input);
     userAgent = escapeHtml(userAgent);
 
-    return "Hello, " + input + "!<br><br>I am running " + serverInfo
-        + ".<br><br>It looks like you are using:<br>" + userAgent;
+    String ret = "Hello, " + input + "!<br><br>I am running " + serverInfo
+        + ".<br><br>It looks like you are using:<br>" + userAgent+"\n"+DBUtil.showInfo();
+	return ret;
   }
 
   /**

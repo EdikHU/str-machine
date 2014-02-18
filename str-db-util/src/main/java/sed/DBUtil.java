@@ -1,12 +1,10 @@
-package sed.jettys;
+package sed;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import sed.jettys.Jetty8901.CookieInfo;
 
 public class DBUtil {
 	
@@ -16,7 +14,7 @@ public class DBUtil {
 
     }
 
-	public static void writeCookie(CookieInfo ci) {
+	public static void writeCookie(String id,String cookie,String ipAddr,String date) {
 		
     	try {
     		
@@ -26,10 +24,6 @@ public class DBUtil {
     		
             Statement s = connection.createStatement();
 
-            String id = ci.id;
-            String cookie = ci.cookie;
-            String ipAddr = ci.ip;
-            String date = ci.date;
 //            System.out.println("insert into " + tableName + " values ('" + id + "','" + cookie + "','" + ipAddr + "','" + date + "')");
 
             s.execute("insert into " + tableName + " values ('" + id + "','" + cookie + "','" + ipAddr + "','" + date + "')");

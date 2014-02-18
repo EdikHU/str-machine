@@ -8,6 +8,8 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.AbstractHandler;
 import org.eclipse.jetty.webapp.WebAppContext;
 
+import sed.DBUtil;
+
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Date;
@@ -29,7 +31,7 @@ public class Jetty8901 extends AbstractHandler {
 
 
 
-    	String jetty_home = System.getProperty("jetty.home","../..");
+    	String jetty_home = System.getProperty("jetty.home","../.."); //   ../
     	 
         Server server8902 = new Server(8902);
  
@@ -71,7 +73,7 @@ public class Jetty8901 extends AbstractHandler {
 
 	private void saveCookieInfo(CookieInfo ci) {
 
-		DBUtil.writeCookie(ci);
+		DBUtil.writeCookie(ci.id,ci.cookie,ci.ip,ci.date);
 
 	}
 

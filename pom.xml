@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
@@ -10,11 +11,16 @@
 
 	<properties>
 		<this.version>0.1</this.version>
+
+		<jetty.version>8.1.11.v20130520</jetty.version>
+		<jdk.version>1.7</jdk.version>
 	</properties>
+
 
 	<modules>
 		<module>str-query-processor</module>
 		<module>str-shower</module>
+		<module>str-db-util</module>
 	</modules>
 
 
