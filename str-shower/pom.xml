@@ -11,15 +11,15 @@
 	<parent>
 		<artifactId>str-machine</artifactId>
 		<groupId>sed.str.machine</groupId>
-		<version>${project.version}</version>
+		<version>${this.version}</version>
 	</parent>
 
 	<artifactId>str-shower</artifactId>
-		<version>0.1</version>
+
+	<name>GWT Shower</name>
 
 	<packaging>war</packaging>
 
-	<name>GWT Shower</name>
 
 
 

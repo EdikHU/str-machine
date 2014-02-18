@@ -5,11 +5,11 @@
 
 	<groupId>sed.str.machine</groupId>
 	<artifactId>str-machine</artifactId>
-	<version>${project.version}</version>
+	<version>${this.version}</version>
 	<packaging>pom</packaging>
 
 	<properties>
-		<project.version>0.0.1-SNAPSHOT</project.version>
+		<this.version>0.1</this.version>
 	</properties>
 
 	<modules>

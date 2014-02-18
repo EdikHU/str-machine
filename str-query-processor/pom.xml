@@ -2,15 +2,15 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>str-query-processor</artifactId>
 
 	<parent>
 		<artifactId>str-machine</artifactId>
 		<groupId>sed.str.machine</groupId>
-		<version>${project.version}</version>
+		<version>${this.version}</version>
 	</parent>
 
 
+	<artifactId>str-query-processor</artifactId>
 
 	<name>str query processor</name>
 
