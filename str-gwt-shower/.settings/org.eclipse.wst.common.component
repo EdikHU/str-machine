@@ -9,6 +9,6 @@
             <dependency-type>uses</dependency-type>
         </dependent-module>
     <property name="java-output-path" value="/${module}/target/www/WEB-INF/classes"/>
-        <property name="context-root" value="str-shower"/>
+        <property name="context-root" value="str-gwt-shower"/>
   </wb-module>
 </project-modules>

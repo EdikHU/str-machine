@@ -14,7 +14,7 @@
 		<version>${this.version}</version>
 	</parent>
 
-	<artifactId>str-shower</artifactId>
+	<artifactId>str-gwt-shower</artifactId>
 
 	<name>GWT Shower</name>
 

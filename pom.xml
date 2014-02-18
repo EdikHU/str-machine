@@ -19,7 +19,7 @@
 
 	<modules>
 		<module>str-query-processor</module>
-		<module>str-shower</module>
+		<module>str-gwt-shower</module>
 		<module>str-db-util</module>
 	</modules>
 
