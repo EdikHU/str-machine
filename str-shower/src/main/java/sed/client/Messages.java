@@ -2,7 +2,7 @@ package sed.client;
 
 /**
  * Interface to represent the messages contained in resource bundle:
- * 	C:/WspSS/str-machine/str-shower/src/main/resources/sed/client/Messages.properties'.
+ * 	D:/workspace_gwt_k/str-machine/str-shower/src/main/resources/sed/client/Messages.properties'.
  */
 public interface Messages extends com.google.gwt.i18n.client.Messages {
   

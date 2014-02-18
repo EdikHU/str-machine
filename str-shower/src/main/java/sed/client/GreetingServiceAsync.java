@@ -2,6 +2,7 @@ package sed.client;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.rpc.ServiceDefTarget;
 
 public interface GreetingServiceAsync
 {
