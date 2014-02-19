@@ -6,7 +6,7 @@
 	<parent>
 		<artifactId>str-machine</artifactId>
 		<groupId>sed.str.machine</groupId>
-		<version>${this.version}</version>
+		<version>0.1</version>
 	</parent>
 
 
@@ -21,7 +21,7 @@
 		<dependency>
 			<groupId>sed.str.machine</groupId>
 			<artifactId>str-db-util</artifactId>
-			<version>${this.version}</version>
+			<version>${project.version}</version>
 		</dependency>
 
 		<dependency>
@@ -38,12 +38,6 @@
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-webapp</artifactId>
 			<version>${jetty.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.derby</groupId>
-			<artifactId>derby</artifactId>
-			<version>10.10.1.1</version>
 		</dependency>
 
 	</dependencies>
