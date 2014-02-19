@@ -19,10 +19,17 @@
 	<dependencies>
 
 		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derby</artifactId>
+			<version>10.10.1.1</version>
+		</dependency>
+
+		<dependency>
 			<groupId>sed.str.machine</groupId>
 			<artifactId>str-db-util</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+
 
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>

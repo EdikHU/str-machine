@@ -37,7 +37,7 @@ public class Jetty8901 extends AbstractHandler {
  
         WebAppContext webapp = new WebAppContext();
         webapp.setContextPath("/");
-        webapp.setWar(jetty_home+"/str-shower/target/str-shower-0.1.war");
+        webapp.setWar(jetty_home+"/str-gwt-shower/target/str-gwt-shower-0.1.war");
         server8902.setHandler(webapp);
 
 
