@@ -29,28 +29,38 @@ public class Jetty8901 extends AbstractHandler {
 
 	public static void main(String[] args) throws Exception {
 
+		String jetty_home = System.getProperty("jetty.home", "../.."); // ../
 
+		Server server8902 = new Server(8902);
+		WebAppContext webapp = new WebAppContext();
+		webapp.setContextPath("/");
+		webapp.setWar(jetty_home
+				+ "/str-gwt-shower/target/str-gwt-shower-0.1.war");
+		server8902.setHandler(webapp);
 
-    	String jetty_home = System.getProperty("jetty.home","../.."); //   ../
-    	 
-        Server server8902 = new Server(8902);
- 
-        WebAppContext webapp = new WebAppContext();
-        webapp.setContextPath("/");
-        webapp.setWar(jetty_home+"/str-gwt-shower/target/str-gwt-shower-0.1.war");
-        server8902.setHandler(webapp);
-
+		Server server8903 = new Server(8903);
+		WebAppContext context = new WebAppContext();
+		context.setContextPath("/");
+		String webappPath = jetty_home
+				+ "/str-some-webapp/target/str-some-webapp-0.1";
+		// context.setDescriptor(webappPath+"/WEB-INF/web.xml");
+		context.setResourceBase(webappPath);
+		server8903.setHandler(context);
 
 		Server server = new Server(8901);
 		Jetty8901 handler = new Jetty8901();
 		server.setHandler(handler);
+
 		server.start();
 		server8902.start();
+		server8903.start();
 		while (!serverStop) {
 			Thread.sleep(1234);
 		}
+
 		DBUtil.dbClose();
 		server8902.stop();
+		server8903.stop();
 		server.stop();
 	}
 
@@ -73,7 +83,7 @@ public class Jetty8901 extends AbstractHandler {
 
 	private void saveCookieInfo(CookieInfo ci) {
 
-		DBUtil.writeCookie(ci.id,ci.cookie,ci.ip,ci.date);
+		DBUtil.writeCookie(ci.id, ci.cookie, ci.ip, ci.date);
 
 	}
 
