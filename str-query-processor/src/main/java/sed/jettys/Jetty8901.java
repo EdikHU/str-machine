@@ -64,44 +64,49 @@ public class Jetty8901 extends AbstractHandler {
 		server.stop();
 	}
 
-	public void handle(String target, Request br, HttpServletRequest req,
+	public void handle(String target, Request baseRequest, HttpServletRequest request,
 			HttpServletResponse resp) throws IOException, ServletException {
 		if ("/quit".equals(target)) {
 			serverStop = true;
-			br.setHandled(true);
+			baseRequest.setHandled(true);
 		} else if ("/favicon.ico".equals(target)) {
-			br.setHandled(true);
+			baseRequest.setHandled(true);
 		} else if ("/showInfo".equals(target)) {
 			resp.getWriter().write(DBUtil.showInfo());
-			br.setHandled(true);
+			baseRequest.setHandled(true);
 		} else {
-			CookieInfo cookieInfo = getSetCookie(br);
-			saveCookieInfo(cookieInfo);
-			br.setHandled(true);
+			RequestInfo requestInfo = getRequestInfoSetCookie(baseRequest);
+			saveRequestInfo(requestInfo);
+			baseRequest.setHandled(true);
 		}
 	}
 
-	private void saveCookieInfo(CookieInfo ci) {
+	private void saveRequestInfo(RequestInfo ci) {
 
 		DBUtil.writeCookie(ci.id, ci.cookie, ci.ip, ci.date);
 
 	}
 
-	private CookieInfo getSetCookie(Request br) {
+	private RequestInfo getRequestInfoSetCookie(Request baseRequest) {
 
-		CookieInfo ci = new CookieInfo();
-		ci.id = br.getRequestURI();
-		ci.ip = br.getRemoteAddr();
-		ci.port = "" + br.getRemotePort();
+		RequestInfo reqInfo = new RequestInfo();
+		reqInfo.id = baseRequest.getRequestURI();
+		reqInfo.ip = baseRequest.getRemoteAddr();
+		reqInfo.port = "" + baseRequest.getRemotePort();
 
+		//System.out.println("--> "+baseRequest.getHeader(""));
+		
+		
+		
+		
 		Cookie cookie = null;
-		if (br.getHeader("Cookie") != null) {
-			List<String> cookies = Arrays.asList(br.getHeader("Cookie")
+		if (baseRequest.getHeader("Cookie") != null) {
+			List<String> cookies = Arrays.asList(baseRequest.getHeader("Cookie")
 					.replaceAll("=", "").split("[;][\\s?]"));
-			Arrays.asList(br.getCookies()).iterator();
+			Arrays.asList(baseRequest.getCookies()).iterator();
 			for (String cook : cookies) {
 				if (cook.contains("s.e.d-"
-						+ br.getRequestURI().replaceAll("/", "") + "-")) {
+						+ baseRequest.getRequestURI().replaceAll("/", "") + "-")) {
 					cookie = new Cookie(cook, "");
 				}
 			}
@@ -109,18 +114,18 @@ public class Jetty8901 extends AbstractHandler {
 
 		if (cookie == null) {
 			cookie = new Cookie("s.e.d-"
-					+ br.getRequestURI().replaceAll("/", "") + "-"
-					+ br.getRemoteAddr() + "-" + System.currentTimeMillis(), "");
+					+ baseRequest.getRequestURI().replaceAll("/", "") + "-"
+					+ baseRequest.getRemoteAddr() + "-" + System.currentTimeMillis(), "");
 		}
 
 		cookie.setMaxAge(60 * 60 * 24 * 30 * 12);
-		br.getResponse().addCookie(cookie);
-		ci.cookie = cookie.getName();
+		baseRequest.getResponse().addCookie(cookie);
+		reqInfo.cookie = cookie.getName();
 
-		return ci;
+		return reqInfo;
 	}
 
-	class CookieInfo {
+	class RequestInfo {
 		String id;
 		String ip;
 		String port;
