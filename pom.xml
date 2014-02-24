@@ -18,7 +18,7 @@
 	<!-- http://www.petrikainulainen.net/programming/tips-and-tricks/creating-profile-specific-configuration-files-with-maven/ -->
 	<modules>
 		<module>str-query-processor</module>
-		<!--module>str-gwt-shower</module -->
+		<module>str-gwt-shower</module>
 		<module>str-db-util</module>
 		<module>str-some-webapp</module>
 	</modules>
@@ -27,13 +27,10 @@
 		<profile>
 			<id>prod</id>
 			<build>
-
 				<plugins>
-
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-assembly-plugin</artifactId>
-						
 						<executions>
 							<execution>
 								<id>assembly</id>
@@ -49,16 +46,13 @@
 							</execution>
 						</executions>
 					</plugin>
-
 					<!--plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-deploy-plugin</artifactId> 
 						<version>0.1</version> <configuration> <file>${project.build.directory}\${project.artifactId}-src.zip</file> 
 						<url>${project.distributionManagement.repository.url}</url> <repositoryId>${project.distributionManagement.repository.id}</repositoryId> 
 						<groupId>${project.groupId}</groupId> <artifactId>${project.artifactId}</artifactId> 
 						<version>${project.version}</version> <packaging>zip</packaging> <pomFile>pom.xml</pomFile> 
 						</configuration> </plugin -->
-
 				</plugins>
-
 			</build>
 		</profile>
 	</profiles>
