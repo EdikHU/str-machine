@@ -11,9 +11,11 @@ import org.eclipse.jetty.webapp.WebAppContext;
 import sed.DBUtil;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -31,11 +33,19 @@ public class Jetty8901 extends AbstractHandler {
 
 		String jetty_home = System.getProperty("jetty.home", "../.."); // ../
 
+		Properties prop = new Properties();
+		InputStream resStream = new Some().getClass().getResourceAsStream("/strconfig.properties");
+		prop.load(resStream);
+		String warShower = prop.getProperty("war.shower");
+		System.out.println("here readed resources "+warShower);
+
+		
 		Server server8902 = new Server(8902);
 		WebAppContext webapp = new WebAppContext();
 		webapp.setContextPath("/");
-		webapp.setWar(jetty_home
-				+ "/str-gwt-shower/target/str-gwt-shower-0.1.war");
+//		webapp.setWar(jetty_home
+//				+ "/str-gwt-shower/target/str-gwt-shower-0.1.war");
+		webapp.setWar(warShower);
 		server8902.setHandler(webapp);
 
 		Server server8903 = new Server(8903);

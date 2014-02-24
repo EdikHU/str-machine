@@ -8,10 +8,9 @@ public class Some {
 
 	public static void main(String[] args) throws IOException {
 		Properties prop = new Properties();
-
 		InputStream resStream = new Some().getClass().getResourceAsStream("/strconfig.properties");
 		prop.load(resStream);
-		String ss = prop.getProperty("some");
+		String ss = prop.getProperty("war.shower");
 		System.out.println("here readed resources "+ss);
 		
 		
