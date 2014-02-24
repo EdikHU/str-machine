@@ -15,46 +15,45 @@
 		<jdk.version>1.7</jdk.version>
 	</properties>
 
-<!-- http://www.petrikainulainen.net/programming/tips-and-tricks/creating-profile-specific-configuration-files-with-maven/ -->
+	<!-- http://www.petrikainulainen.net/programming/tips-and-tricks/creating-profile-specific-configuration-files-with-maven/ -->
 	<modules>
 		<module>str-query-processor</module>
-		<module>str-gwt-shower</module>
+		<!--module>str-gwt-shower</module -->
 		<module>str-db-util</module>
 		<module>str-some-webapp</module>
 	</modules>
 
 	<profiles>
 		<profile>
-			<id>local</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
+			<id>depl</id>
 			<build>
-				<resources>
-					<resource>
-						<directory>src/resources</directory>
-					</resource>
-				</resources>
-			</build>
-		</profile>
-		<profile>
-			<id>dev</id>
-			<build>
-				<resources>
-					<resource>
-						<directory>src/dev-resources</directory>
-					</resource>
-				</resources>
-			</build>
-		</profile>
-		<profile>
-			<id>prod</id>
-			<build>
-				<resources>
-					<resource>
-						<directory>src/prod-resources</directory>
-					</resource>
-				</resources>
+
+				<plugins>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-assembly-plugin</artifactId>
+						
+						<executions>
+							<execution>
+								<id>assembly</id>
+								<phase>package</phase>
+								<goals>
+									<goal>attached</goal>
+								</goals>
+								<configuration>
+									<descriptors>
+										<descriptor>assembly.xml</descriptor>
+									</descriptors>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+
+					
+
+				</plugins>
+
 			</build>
 		</profile>
 	</profiles>
