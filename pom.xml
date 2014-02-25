@@ -23,6 +23,10 @@
 		<module>str-some-webapp</module>
 	</modules>
 
+	<build>
+		<finalName>${project.artifactId}</finalName>
+	</build>
+
 	<profiles>
 		<profile>
 			<id>prod</id>

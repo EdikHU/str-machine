@@ -14,7 +14,7 @@
 			<directory>str-query-processor/target</directory>
 			<outputDirectory>/</outputDirectory>
 			<includes>
-				<include>str-query-processor-0.1.jar</include>
+				<include>*.jar</include>
 				<include>lib/*</include>
 				<include>resources/*</include>
 			</includes>
@@ -26,10 +26,22 @@
 				<include>*.war</include>
 			</includes>
 		</fileSet>
-		<!--fileSet> <source>README.txt</source> <outputDirectory>/</outputDirectory> 
-			<filtered>true</filtered> </fileSet -->
-		<!--file> <source>LICENSE.txt</source> <outputDirectory>/</outputDirectory> 
-			</file> <file> <source>NOTICE.txt</source> <outputDirectory>/</outputDirectory> 
-			<filtered>true</filtered> </file -->
+		
+		<fileSet>
+			<directory>str-some-webapp/target</directory>
+			<outputDirectory>/</outputDirectory>
+			<includes>
+				<include>*.war</include>
+			</includes>
+		</fileSet>
+		
 	</fileSets>
 </assembly>
+
+
+
+
+
+
+
+
