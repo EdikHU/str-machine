@@ -31,7 +31,7 @@ public class Some {
 						int[] arr = new int[48*11];
 						 int col = bim.getRGB(THE_X, THE_Y);
 						for (int i = 0; i < arr.length; i++) {
-							arr[i] = col;
+							arr[i] = col; 
 						}
 						
 						bim.setRGB(THE_X, THE_Y, 48, 11, arr, 0, 48);
